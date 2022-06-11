@@ -98,8 +98,7 @@ void searcher::file_search(std::string_view filename, std::string_view haystack)
     auto grandparent_path_str = "-I" + grandparent_path.string();
     clang_options.push_back(parent_path_str.c_str());
     clang_options.push_back(grandparent_path_str.c_str());
-    clang_options.push_back("-I/usr/include");
-    clang_options.push_back("-I/usr/local/include");
+    clang_options.push_back("-I@TERMUX_PREFIX@/include");
 
     if (m_verbose) {
       fmt::print("Clang options:\n");
